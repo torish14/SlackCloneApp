@@ -1,11 +1,5 @@
 <template>
   <div class="container">
-    <div class="chats-layout">
-      <messages />
-    </div>
-    <div class="input-layout">
-      <chat-form />
-    </div>
   </div>
 </template>
 
