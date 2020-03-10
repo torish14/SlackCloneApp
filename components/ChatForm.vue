@@ -18,6 +18,7 @@
 import { db, firebase } from '~/plugins/firebase'
 
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
@@ -29,7 +30,11 @@ export default {
       text: null
     }
   },
+  mounted() {
+    console.log(this.$store.state.user)
+  },
   methods: {
+    ...mapActions(['setUser']),
     openLoginModal() {
       this.dialogVisible = true
     },
@@ -52,7 +57,8 @@ export default {
       firebase.auth().signInWithPopup(provider)
         .then((result) => {
           const user = result.user
-          console.log(user)
+          this.setUser(user)
+          console.log(this.$store.state.user)
           this.dialogVisible = false
         }).catch((error) => {
           window.alert(error)
