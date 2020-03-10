@@ -28,7 +28,7 @@ export default {
   mounted() {
     //! this.$route は現在の url に関する情報を取得できる。
     const channelId = this.$route.params.id
-    db.collection('channels').doc(channelId).collection('messages')
+    db.collection('channels').doc(channelId).collection('messages').orderBy('createdAt')
       // onSnapshot を collection('messages') に対して実行する。
       // つまり、messages collection に変更があった場合に処理を実行する。
       .onSnapshot((snapshot) => {
