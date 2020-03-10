@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <button　@click="login">ログイン</button>
   </div>
 </template>
 
@@ -7,11 +8,24 @@
 import Messages from '~/components/Messages.vue'
 import ChatForm from '~/components/ChatForm.vue'
 import { db } from '~/plugins/firebase'
+import { firebase } from '~/plugins/firebase'
 
 export default {
   components: {
     Messages,
     ChatForm
+  },
+  methods: {
+    login() {
+      const provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user
+          console.log(user)
+        }).catch((error) => {
+          window.alert(error)
+        })
+    }
   }
 }
 </script>
