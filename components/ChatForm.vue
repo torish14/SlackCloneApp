@@ -20,7 +20,7 @@ export default {
       const channelId = this.$route.params.id
       db.collection('channels').doc(channelId).collection('messages').add({
         text: this.text,
-        creatdAt: new Date().getTime()
+        createdAt: new Date().getTime()
       }).then(() => {
         this.text = null
       })
