@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <button>ログイン</button>
   </div>
 </template>
 
