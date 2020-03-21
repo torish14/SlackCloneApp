@@ -8,7 +8,7 @@
       width="30%"
     >
       <div class="image-container">
-        <img src="~/assets/google_sign_in.png" alt="" @click="login" />
+        <img src="~/assets/btn_google_signin.png" alt="" @click="login" />
       </div>
     </el-dialog>
   </div>
